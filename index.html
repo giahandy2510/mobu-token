@@ -19,7 +19,6 @@
     <div class="max-w-xl w-full bg-slate-800 rounded-xl shadow-2xl p-8 space-y-8 border border-slate-700">
         
         <header class="text-center space-y-4">
-            
             <h1 class="text-4xl font-extrabold text-indigo-400">🚀 MOONBULL (MOBU) 🐂</h1>
             <p class="text-xl text-slate-300">Ready for trading on the BNB Smart Chain (BSC) Network</p>
             <p class="text-sm font-semibold text-yellow-400">Developed by a team from Harvard University</p>
@@ -124,54 +123,23 @@
                     Complete the following steps to claim 500,000 free MOBU:
                 </p>
                 
-                <ul class="list-disc list-inside space-y-1 text-slate-300 ml-4">
+                <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
                     <li>
                         <span class="font-bold text-indigo-300">Task 1:</span> Follow our official X (Twitter) page: 
                         <a href="https://x.com/zuken4647" target="_blank" class="text-blue-400 hover:text-blue-300 font-medium">@zuken4647</a>
                     </li>
                     <li>
-                        <span class="font-bold text-indigo-300">Task 2:</span> Fill out the Form below completely.
+                        <span class="font-bold text-indigo-300">Task 2:</span> Fill out the external Airdrop Registration Form completely.
                     </li>
                 </ul>
                 
                 <hr class="border-slate-600"/>
 
-                <form onsubmit="handleAirdropSubmit(event)" class="space-y-3">
-                    
-                    <div>
-                        <label for="fullName" class="block text-sm font-medium text-slate-300 mb-1">
-                            Full Name:
-                        </label>
-                        <input type="text" id="fullName" name="fullName" required
-                               class="w-full p-2 rounded-lg bg-slate-600 border border-slate-500 text-white placeholder-slate-400 focus:ring-yellow-500 focus:border-yellow-500"
-                               placeholder="e.g., John Doe">
-                    </div>
-
-                    <div>
-                        <label for="xUsername" class="block text-sm font-medium text-slate-300 mb-1">
-                            Your X (Twitter) Username:
-                        </label>
-                        <input type="text" id="xUsername" name="xUsername" required
-                               class="w-full p-2 rounded-lg bg-slate-600 border border-slate-500 text-white placeholder-slate-400 focus:ring-yellow-500 focus:border-yellow-500"
-                               placeholder="@your_x_handle">
-                    </div>
-
-                    <div>
-                        <label for="walletAddress" class="block text-sm font-medium text-slate-300 mb-1">
-                            Your BSC Wallet Address (Web3):
-                        </label>
-                        <input type="text" id="walletAddress" name="walletAddress" required
-                               class="w-full p-2 rounded-lg bg-slate-600 border border-slate-500 text-white placeholder-slate-400 focus:ring-yellow-500 focus:border-yellow-500"
-                               placeholder="e.g., 0x..." minlength="42" maxlength="42">
-                        <p class="text-xs text-slate-400 mt-1">Ensure this is your BSC (Binance Smart Chain) wallet.</p>
-                    </div>
-                    
-                    <button type="submit" id="airdrop-submit-btn"
-                            class="w-full py-3 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-lg font-bold transition duration-200 shadow-md hover:shadow-lg">
-                        ✅ Register for Airdrop
-                    </button>
-                    <p id="airdrop-message" class="text-center text-sm mt-2 hidden"></p>
-                </form>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3DEqBglZk1FgyqwWMgaYlOJRSQUpJb2ivgweNO9ABb86Gbg/viewform?usp=header" target="_blank"
+                   class="w-full inline-block py-3 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-lg font-bold text-center transition duration-200 shadow-md hover:shadow-lg">
+                    📝 Go to Airdrop Registration Form
+                </a>
+                <p class="text-center text-xs text-slate-400 mt-2">The form will open in a new tab for registration.</p>
 
             </div>
         </section>
@@ -228,6 +196,12 @@
                     <span class="text-white text-2xl font-bold">X</span> 
                     <span class="hidden sm:inline text-white font-medium">Twitter</span>
                 </a>
+
+                <a href="https://t.me/+JZ_f8j6xhFxkMGJl" target="_blank" 
+                   class="flex items-center space-x-2 p-3 bg-sky-500 hover:bg-sky-600 rounded-full transition duration-150 shadow-md">
+                    <span class="text-white text-2xl font-bold">✈️</span> 
+                    <span class="hidden sm:inline text-white font-medium">Telegram</span>
+                </a>
             </div>
         </footer>
 
@@ -238,35 +212,6 @@
 
         document.getElementById('token-symbol').textContent = "MOBU";
         document.getElementById('contract-address').textContent = TOKEN_ADDRESS;
-
-        // Function to handle Airdrop form submission (Simulated success)
-        function handleAirdropSubmit(event) {
-            event.preventDefault(); // Prevents the form from submitting
-            
-            const walletInput = document.getElementById('walletAddress');
-            const messageElement = document.getElementById('airdrop-message');
-            
-            // Basic wallet address validation (42 chars and starts with 0x)
-            if (walletInput.value.length !== 42 || !walletInput.value.startsWith('0x')) {
-                messageElement.textContent = "⚠️ Please enter a valid BSC Wallet Address (42 chars, starting with 0x).";
-                messageElement.classList.remove('text-green-400');
-                messageElement.classList.add('text-red-400');
-                messageElement.classList.remove('hidden');
-                return;
-            }
-
-            // Simulate successful registration
-            messageElement.textContent = `✅ Airdrop registration successful! We will verify your X follow task.`;
-            messageElement.classList.add('text-green-400');
-            messageElement.classList.remove('text-red-400');
-            messageElement.classList.remove('hidden');
-            
-            // Disable button and clear input fields
-            document.getElementById('airdrop-submit-btn').disabled = true;
-            document.getElementById('airdrop-submit-btn').textContent = "Registered!";
-            document.getElementById('fullName').value = ''; 
-            document.getElementById('xUsername').value = ''; 
-        }
 
         // Function to copy contract address to clipboard
         function copyToClipboard(element) {
